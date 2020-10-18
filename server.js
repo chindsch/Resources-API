@@ -2,18 +2,23 @@ const express = require('express'),
 	app = express(),
 	port = process.env.PORT || 3000,
 	mongoose = require('mongoose'),
-	Resource = require('./api/models/resourcesModels.js'),
+	Resource = require('./api/models/resourcesModels'),
 	bodyParser = require('body-parser')
 
 //Connecting to mongoose boiler plate to allow to connect to mongoDB database when we are ready
 mongoose.Promise = global.Promise;
-mongoose.connect('mongoDB://localhost/ResourcesDb');
+mongoose.connect('mongodb://localhost/ResourcesDb');
 
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
 let routes = require('./api/routes/resourcesRoutes');
-routes(app);  //registering the routes with the app instance instead of listing out all routes
+routes(app);
+
+
+ //registering the routes with the app instance instead of listing out all routes
+
+
 
 
 app.listen(port);

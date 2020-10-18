@@ -25,4 +25,4 @@ let ResourceSchema = new Schema({
 	  required: 'Please enter a skill level of beginner, intermediate, or advanced'
 	}})
 
-module.export = mongoose.module('Resources',ResourceSchema)      // #method in mongoose to build schema in the database. Application would set up this schema, do not need this set up in the database already
+module.export = mongoose.model('Resources',ResourceSchema)      // #method in mongoose to build schema in the database. Application would set up this schema, do not need this set up in the database already
